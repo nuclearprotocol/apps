@@ -25,6 +25,7 @@ export function useBlockTime (blocks = BN_ONE, apiOverride?: ApiPromise | null):
       const a = apiOverride || api;
       const blockTime = (
         a.consts.babe?.expectedBlockTime ||
+        (a.query.parachainSystem && new BN(6000)) ||
         a.consts.difficulty?.targetBlockTime ||
         a.consts.timestamp?.minimumPeriod.muln(2) ||
         DEFAULT_TIME

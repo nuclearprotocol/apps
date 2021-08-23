@@ -10,6 +10,7 @@ export * from './constants';
 export * from './params';
 
 export function getChainTypes (_specName: string, chainName: string): Record<string, string | Record<string, unknown>> {
+  console.log('CHAINAME',chainName)
   return {
     ...(typesChain[chainName as keyof typeof typesChain] || {})
   };

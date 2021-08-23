@@ -109,7 +109,8 @@ async function retrieve (api: ApiPromise, injectedPromise: Promise<InjectedExten
     api.rpc.system.version(),
     getInjectedAccounts(injectedPromise)
   ]);
-
+console.log("system name",(await api.rpc.system.name()).toString())
+console.log("systemChain",systemChain)
   return {
     injectedAccounts,
     properties: registry.createType('ChainProperties', {
